@@ -91,6 +91,7 @@ public class City implements StaticItem
   {
     // TODO move all this logic to a builder?
     // TODO the city should be able to build more than one unit in one cycle, given that its production effort is much higher than what is required by a given unit
+    // TODO add cycle diff service
     Effort buildEffortSpent = getBuildEffortSpent().cycle();
     Optional<Item> itemToBuild = currentlyBuilding;
     if (!itemToBuild.isPresent())
