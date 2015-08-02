@@ -1,6 +1,8 @@
 package com.vincentks.vic.game;
 
 import java.util.Collection;
+import java.util.Optional;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 public class CycleSummaryImpl implements CycleSummary
@@ -42,5 +44,23 @@ public class CycleSummaryImpl implements CycleSummary
   public int getId()
   {
     return id;
+  }
+
+  @Override
+  public Iterable<Item> getItems()
+  {
+    return items
+        .stream()
+        .map(Pair::getSecond)
+        .collect(Collectors.toList());
+  }
+
+  @Override
+  public Optional<Item> getById(UUID itemId)
+  {
+    for (Item item : getItems())
+      if (item.getId().equals(itemId))
+        return Optional.of(item);
+    return Optional.empty();
   }
 }

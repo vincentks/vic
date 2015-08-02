@@ -1,8 +1,9 @@
 package com.vincentks.vic.game;
 
 import java.util.Optional;
+import java.util.UUID;
 
-public interface Item extends Tick
+public interface Item extends Tick, DiffAware
 {
   Optional<Item> currentActivity();
 
@@ -10,4 +11,6 @@ public interface Item extends Tick
 
   @Override
   Item cycle();
+
+  UUID getId();
 }

@@ -1,6 +1,9 @@
 package com.vincentks.vic.game;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Optional;
+import java.util.UUID;
 
 public class CityElement implements Item
 {
@@ -18,6 +21,12 @@ public class CityElement implements Item
   }
 
   @Override
+  public UUID getId()
+  {
+    return UUID.randomUUID();
+  }
+
+  @Override
   public Optional<Item> currentActivity()
   {
     return Optional.empty();
@@ -27,5 +36,11 @@ public class CityElement implements Item
   public Effort buildEffort()
   {
     return effort;
+  }
+
+  @Override
+  public Collection<CycleDiff> diff(Item itemInPreviousCycle)
+  {
+    return Collections.emptyList();
   }
 }

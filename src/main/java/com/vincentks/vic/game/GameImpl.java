@@ -13,14 +13,14 @@ public class GameImpl implements Game
   @Override
   public CycleSummary cycle()
   {
-    final List<Pair<Actor, Item>> items = this.items
+    this.items = this.items
         .stream()
-        .map(GameImpl::tick)
+        .map(GameImpl::cycle)
         .collect(Collectors.toList());
     return new CycleSummaryImpl(++cycleId, items);
   }
 
-  private static Pair<Actor, Item> tick(Pair<Actor, Item> actorItemPair)
+  private static Pair<Actor, Item> cycle(Pair<Actor, Item> actorItemPair)
   {
     return new Pair<>(
         actorItemPair.getFirst(),

@@ -7,11 +7,14 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Optional;
 import java.util.Queue;
+import java.util.UUID;
 
 import com.google.common.collect.FluentIterable;
+import com.google.common.collect.Lists;
 
 public class City implements StaticItem
 {
+  private final UUID             id;
   private final String           name;
   private final Integer          population;
   private final Location         location;
@@ -25,6 +28,20 @@ public class City implements StaticItem
     this(name, 0);
   }
 
+  public City(String name, UUID id)
+  {
+    this(
+        id,
+        name,
+        0,
+        new Location(STANDARD),
+        new Effort(0),
+        Optional.empty(),
+        Collections.emptyList(),
+        new LinkedList<>()
+    );
+  }
+
   public City(String name, int population)
   {
     this(name, population, new Location(STANDARD));
@@ -33,6 +50,7 @@ public class City implements StaticItem
   public City(String name, int population, Location location)
   {
     this(
+        UUID.randomUUID(),
         name,
         population,
         location,
@@ -44,6 +62,7 @@ public class City implements StaticItem
   }
 
   public City(
+      UUID id,
       String name,
       int population,
       Location location,
@@ -53,6 +72,7 @@ public class City implements StaticItem
       Queue<Item> buildQueue
   )
   {
+    this.id = id;
     this.name = name;
     this.population = population;
     this.location = location;
@@ -91,7 +111,6 @@ public class City implements StaticItem
   {
     // TODO move all this logic to a builder?
     // TODO the city should be able to build more than one unit in one cycle, given that its production effort is much higher than what is required by a given unit
-    // TODO add cycle diff service
     Effort buildEffortSpent = getBuildEffortSpent().cycle();
     Optional<Item> itemToBuild = currentlyBuilding;
     if (!itemToBuild.isPresent())
@@ -106,15 +125,22 @@ public class City implements StaticItem
 
     Collection<Item> nextTickElements = appendToElementsIfNecessary(itemBuilt);
 
-    return new City(
-        name,
-        population + Double.valueOf(population * getGrowthFactor()).intValue(),
-        location,
-        buildEffortSpent,
-        itemToBuild,
-        nextTickElements,
-        buildQueue
-    );
+    return new CityBuilder()
+        .setId(id)
+        .setName(name)
+        .setPopulation(population + Double.valueOf(population * getGrowthFactor()).intValue())
+        .setLocation(location)
+        .setBuildEffortSpent(buildEffortSpent)
+        .setCurrentlyBuilding(itemToBuild)
+        .setElements(nextTickElements)
+        .setBuildQueue(buildQueue)
+        .build();
+  }
+
+  @Override
+  public UUID getId()
+  {
+    return id;
   }
 
   private static boolean shouldNewItemBeBuilt(Optional<Item> itemBuilt)
@@ -155,11 +181,6 @@ public class City implements StaticItem
     return location.getGrowthFactor();
   }
 
-  public String getName()
-  {
-    return name;
-  }
-
   public Collection<Item> getElements()
   {
     return elements;
@@ -168,5 +189,24 @@ public class City implements StaticItem
   public Effort getBuildEffortSpent()
   {
     return buildEffortSpent;
+  }
+
+  @Override
+  public String toString()
+  {
+    return name;
+  }
+
+  @Override
+  public Collection<CycleDiff> diff(Item itemInPreviousCycle)
+  {
+    CycleDiff result = new CycleDiff(
+        RelevanceLevel.NORMAL,
+        String.format(
+            "Population changed to %d (%+d)",
+            population,
+            population - ((City) itemInPreviousCycle).population
+        ));
+    return Lists.newArrayList(result);
   }
 }
