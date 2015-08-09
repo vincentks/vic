@@ -1,6 +1,6 @@
 package com.vincentks.vic.game;
 
-public class Effort implements Tick
+public class Effort implements Cyclable
 {
   public static final Effort noEffort = new Effort(0)
   {

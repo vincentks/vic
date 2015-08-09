@@ -1,10 +1,8 @@
 package com.vincentks.vic.game;
 
-import static com.vincentks.vic.game.Terrain.STANDARD;
+import static com.vincentks.vic.game.RelevanceLevel.NORMAL;
 
 import java.util.Collection;
-import java.util.Collections;
-import java.util.LinkedList;
 import java.util.Optional;
 import java.util.Queue;
 import java.util.UUID;
@@ -22,44 +20,6 @@ public class City implements StaticItem
   private final Collection<Item> elements;
   private final Effort           buildEffortSpent;
   private final Queue<Item>      buildQueue;
-
-  public City(String name)
-  {
-    this(name, 0);
-  }
-
-  public City(String name, UUID id)
-  {
-    this(
-        id,
-        name,
-        0,
-        new Location(STANDARD),
-        new Effort(0),
-        Optional.empty(),
-        Collections.emptyList(),
-        new LinkedList<>()
-    );
-  }
-
-  public City(String name, int population)
-  {
-    this(name, population, new Location(STANDARD));
-  }
-
-  public City(String name, int population, Location location)
-  {
-    this(
-        UUID.randomUUID(),
-        name,
-        population,
-        location,
-        new Effort(0),
-        Optional.empty(),
-        Collections.emptyList(),
-        new LinkedList<>()
-    );
-  }
 
   public City(
       UUID id,
@@ -109,7 +69,6 @@ public class City implements StaticItem
   @Override
   public City cycle()
   {
-    // TODO move all this logic to a builder?
     // TODO the city should be able to build more than one unit in one cycle, given that its production effort is much higher than what is required by a given unit
     Effort buildEffortSpent = getBuildEffortSpent().cycle();
     Optional<Item> itemToBuild = currentlyBuilding;
@@ -123,8 +82,6 @@ public class City implements StaticItem
         buildEffortSpent = new Effort(0);
     }
 
-    Collection<Item> nextTickElements = appendToElementsIfNecessary(itemBuilt);
-
     return new CityBuilder()
         .setId(id)
         .setName(name)
@@ -132,7 +89,7 @@ public class City implements StaticItem
         .setLocation(location)
         .setBuildEffortSpent(buildEffortSpent)
         .setCurrentlyBuilding(itemToBuild)
-        .setElements(nextTickElements)
+        .setElements(appendToElementsIfNecessary(itemBuilt))
         .setBuildQueue(buildQueue)
         .build();
   }
@@ -201,7 +158,7 @@ public class City implements StaticItem
   public Collection<CycleDiff> diff(Item itemInPreviousCycle)
   {
     CycleDiff result = new CycleDiff(
-        RelevanceLevel.NORMAL,
+        NORMAL,
         String.format(
             "Population changed to %d (%+d)",
             population,

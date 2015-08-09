@@ -2,6 +2,7 @@ package com.vincentks.vic.game;
 
 import static com.vincentks.vic.game.RelevanceLevel.NORMAL;
 import static com.vincentks.vic.game.Terrain.DESERT;
+import static com.vincentks.vic.game.TestFixture.NULL_ACTOR;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.collection.IsEmptyIterable.emptyIterable;
@@ -9,13 +10,8 @@ import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
-import com.vincentks.vic.game.util.NullActor;
-
 public class GameDiffWrapperTest
 {
-
-  // TODO move this to a global test fixture?
-  private static final NullActor NULL_ACTOR = new NullActor();
 
   @Test
   public void testCycle_EmptyDiff() throws Exception

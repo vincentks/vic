@@ -12,10 +12,10 @@ import org.junit.Test;
 
 public class CityTest
 {
-  private static City emptyCity = new City("Amsterdam");
+  private static City emptyCity = new CityBuilder().setName("Amsterdam").build();
 
   @Test
-  public void testTick_Empty() throws Exception
+  public void testCycle_Empty() throws Exception
   {
     assertThat(
         emptyCity.cycle().getPopulation(),
@@ -24,10 +24,10 @@ public class CityTest
   }
 
   @Test
-  public void testTick_10PerCentGrowth() throws Exception
+  public void testCycle_10PerCentGrowth() throws Exception
   {
     assertThat(
-        new City("Amsterdam", 1000, new Location(Terrain.DESERT)).cycle().getPopulation(),
+        new CityBuilder().setName("Amsterdam").setPopulation(1000).setLocation(new Location(Terrain.DESERT)).build().cycle().getPopulation(),
         is(1100)
     );
   }
@@ -41,7 +41,7 @@ public class CityTest
   @Test
   public void testCurrentActivity_NewElement() throws Exception
   {
-    City city = new City("Amsterdam");
+    City city = new CityBuilder().setName("Amsterdam").build();
     city.build(new CityElement(new Effort(2)));
 
     final City postCycleCity = city.cycle();
@@ -52,7 +52,7 @@ public class CityTest
   @Test
   public void testCity_BuildsItemOnCycle() throws Exception
   {
-    City city = new City("Amsterdam");
+    City city = new CityBuilder().setName("Amsterdam").build();
     city.build(new CityElement(new Effort(2)));
     city.build(new CityElement(new Effort(2)));
 
@@ -65,7 +65,7 @@ public class CityTest
   @Test
   public void testCity_GrowthBasedOnTerrain() throws Exception
   {
-    City city = new City("Amsterdam", 1000);
+    City city = new CityBuilder().setName("Amsterdam").setPopulation(1000).build();
 
     assertThat(city.getGrowthFactor(), is(1.0));
   }

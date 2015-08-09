@@ -3,7 +3,7 @@ package com.vincentks.vic.game;
 import java.util.Optional;
 import java.util.UUID;
 
-public interface Item extends Tick, DiffAware
+public interface Item extends Cyclable, DiffAware
 {
   Optional<Item> currentActivity();
 

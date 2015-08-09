@@ -15,8 +15,7 @@ public class NullItem implements Item
   @Override
   public Item cycle()
   {
-    // TODO how to address this?
-    return new CityBuilder().setName(null).build();
+    return new CityBuilder().build();
   }
 
   @Override
