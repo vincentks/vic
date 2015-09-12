@@ -2,7 +2,7 @@ package com.vincentks.vic.game;
 
 import static com.vincentks.vic.game.RelevanceLevel.NORMAL;
 import static com.vincentks.vic.game.Terrain.DESERT;
-import static com.vincentks.vic.game.TestFixture.NULL_ACTOR;
+import static com.vincentks.vic.game.util.TestFixture.NULL_ACTOR;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.collection.IsEmptyIterable.emptyIterable;

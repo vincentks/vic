@@ -164,6 +164,7 @@ public class City implements StaticItem
             population,
             population - ((City) itemInPreviousCycle).population
         ));
+    // TODO add diff related to units created
     return Lists.newArrayList(result);
   }
 }

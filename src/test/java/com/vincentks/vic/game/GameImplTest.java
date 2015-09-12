@@ -1,7 +1,7 @@
 package com.vincentks.vic.game;
 
-import static com.vincentks.vic.game.TestFixture.NULL_ACTOR;
-import static com.vincentks.vic.game.TestFixture.NULL_ITEM;
+import static com.vincentks.vic.game.util.TestFixture.NULL_ACTOR;
+import static com.vincentks.vic.game.util.TestFixture.NULL_ITEM;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
