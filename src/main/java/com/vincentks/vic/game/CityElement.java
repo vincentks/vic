@@ -27,6 +27,12 @@ public class CityElement implements Item
   }
 
   @Override
+  public ItemType getType()
+  {
+    return ItemType.STATIC;
+  }
+
+  @Override
   public Optional<Item> currentActivity()
   {
     return Optional.empty();

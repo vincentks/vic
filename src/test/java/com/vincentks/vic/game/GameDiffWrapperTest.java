@@ -27,7 +27,28 @@ public class GameDiffWrapperTest
   }
 
   @Test
-  public void testCycle_CityEvolution() throws Exception
+  public void testCycle_CityBuildingUnit() throws Exception
+  {
+    final CycleDiffCollector cycleDiffCollector = new CycleDiffCollector();
+    final Game game = new GameImpl();
+    final City city = new CityBuilder().build();
+    game.add(NULL_ACTOR, city);
+    final GameDiffWrapper wrapper = new GameDiffWrapper(
+        game,
+        NULL_ACTOR,
+        cycleDiffCollector
+    );
+    wrapper.cycle();
+    city.build(FootSoldier.create(new Location(Terrain.STANDARD), new LocationManagerImpl()));
+    wrapper.cycle();
+
+    final CycleDiff cycleDiff = cycleDiffCollector.getDiffs().iterator().next();
+    assertThat(cycleDiff.getLevel(), is(NORMAL));
+    assertThat(cycleDiff.getMessage(), containsString("Created 1 new unit(s)"));
+  }
+
+  @Test
+  public void testCycle_CityPopulationEvolution() throws Exception
   {
     final CycleDiffCollector cycleDiffCollector = new CycleDiffCollector();
     // TODO create a game builder?

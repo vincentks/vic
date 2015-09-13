@@ -13,4 +13,6 @@ public interface Item extends Cyclable, DiffAware
   Item cycle();
 
   UUID getId();
+
+  ItemType getType();
 }

@@ -3,12 +3,14 @@ package com.vincentks.vic.game;
 import static com.vincentks.vic.game.RelevanceLevel.NORMAL;
 
 import java.util.Collection;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Queue;
 import java.util.UUID;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import com.google.common.collect.FluentIterable;
-import com.google.common.collect.Lists;
 
 public class City implements StaticItem
 {
@@ -100,6 +102,12 @@ public class City implements StaticItem
     return id;
   }
 
+  @Override
+  public ItemType getType()
+  {
+    return ItemType.STATIC;
+  }
+
   private static boolean shouldNewItemBeBuilt(Optional<Item> itemBuilt)
   {
     return itemBuilt.isPresent();
@@ -157,14 +165,47 @@ public class City implements StaticItem
   @Override
   public Collection<CycleDiff> diff(Item itemInPreviousCycle)
   {
-    CycleDiff result = new CycleDiff(
+    City cityInPreviousCycle = (City) itemInPreviousCycle;
+    // http://stackoverflow.com/questions/22740464/adding-two-java-8-streams-or-an-extra-element-to-a-stream
+    final Stream<CycleDiff> stream = Stream.concat(
+        getPopulationDiff(cityInPreviousCycle),
+        getUnitDiff(cityInPreviousCycle)
+    );
+    return stream.collect(Collectors.toList());
+  }
+
+  private Stream<CycleDiff> getUnitDiff(City cityInPreviousCycle)
+  {
+    final long activeItemsCreatedInThisCycle = elements
+        .stream()
+        .filter(item -> isActiveItemCreatedInThisCycle(cityInPreviousCycle, item))
+        .count();
+    if (activeItemsCreatedInThisCycle > 0)
+      return Stream.of(new CycleDiff(
+          NORMAL,
+          String.format(
+              "Created %d new unit(s)",
+              activeItemsCreatedInThisCycle
+          )));
+    return Stream.empty();
+  }
+
+  private boolean isActiveItemCreatedInThisCycle(City cityInPreviousCycle, Item item)
+  {
+    final boolean isCreatedInThisCycle = !cityInPreviousCycle.getElements().contains(item);
+    return isCreatedInThisCycle && ItemType.ACTIVE == item.getType();
+  }
+
+  private Stream<CycleDiff> getPopulationDiff(City cityInPreviousCycle)
+  {
+    if (!Objects.equals(population, cityInPreviousCycle.population))
+      return Stream.of(new CycleDiff(
         NORMAL,
         String.format(
             "Population changed to %d (%+d)",
             population,
-            population - ((City) itemInPreviousCycle).population
-        ));
-    // TODO add diff related to units created
-    return Lists.newArrayList(result);
+            population - cityInPreviousCycle.population
+        )));
+    return Stream.empty();
   }
 }

@@ -1,6 +1,9 @@
 package com.vincentks.vic.game;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Optional;
+import java.util.UUID;
 
 public class FootSoldier implements ActiveItem
 {
@@ -12,7 +15,7 @@ public class FootSoldier implements ActiveItem
     this.locationManager = locationManager;
   }
 
-  public static FootSoldier create(Location currentLocation, LocationManager locationManager)
+  public static ActiveItem create(Location currentLocation, LocationManager locationManager)
   {
     final FootSoldier result = new FootSoldier(locationManager);
     locationManager.move(result, currentLocation);
@@ -32,7 +35,19 @@ public class FootSoldier implements ActiveItem
   }
 
   @Override
-  public Cyclable cycle()
+  public Optional<Item> currentActivity()
+  {
+    return Optional.empty();
+  }
+
+  @Override
+  public Effort buildEffort()
+  {
+    return new Effort(1);
+  }
+
+  @Override
+  public Item cycle()
   {
     if (targetLocation.isPresent())
     {
@@ -40,5 +55,23 @@ public class FootSoldier implements ActiveItem
       targetLocation = Optional.empty();
     }
     return this;
+  }
+
+  @Override
+  public UUID getId()
+  {
+    return UUID.randomUUID();
+  }
+
+  @Override
+  public ItemType getType()
+  {
+    return ItemType.ACTIVE;
+  }
+
+  @Override
+  public Collection<CycleDiff> diff(Item itemInPreviousCycle)
+  {
+    return Collections.emptyList();
   }
 }

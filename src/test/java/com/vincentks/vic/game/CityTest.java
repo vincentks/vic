@@ -33,7 +33,7 @@ public class CityTest
   }
 
   @Test
-  public void testCurrentActivity_IsNothing() throws Exception
+  public void testCurrentActivity_IsEmpty() throws Exception
   {
     assertThat(emptyCity.currentActivity(), is(empty()));
   }

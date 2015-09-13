@@ -9,6 +9,7 @@ import com.vincentks.vic.game.CityBuilder;
 import com.vincentks.vic.game.CycleDiff;
 import com.vincentks.vic.game.Effort;
 import com.vincentks.vic.game.Item;
+import com.vincentks.vic.game.ItemType;
 
 public class NullItem implements Item
 {
@@ -22,6 +23,12 @@ public class NullItem implements Item
   public UUID getId()
   {
     return UUID.randomUUID();
+  }
+
+  @Override
+  public ItemType getType()
+  {
+    return ItemType.STATIC;
   }
 
   @Override
