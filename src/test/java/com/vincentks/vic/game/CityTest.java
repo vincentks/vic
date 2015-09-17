@@ -1,5 +1,8 @@
+
 package com.vincentks.vic.game;
 
+import static com.vincentks.vic.game.City.INITIAL_POPULATION;
+import static com.vincentks.vic.game.util.TestFixture.EMPTY_CITY;
 import static java.util.Optional.empty;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.isA;
@@ -12,13 +15,11 @@ import org.junit.Test;
 
 public class CityTest
 {
-  private static City emptyCity = new CityBuilder().setName("Amsterdam").build();
-
   @Test
   public void testCycle_Empty() throws Exception
   {
     assertThat(
-        emptyCity.cycle().getPopulation(),
+        EMPTY_CITY.cycle().getPopulation(),
         is(0)
     );
   }
@@ -26,8 +27,14 @@ public class CityTest
   @Test
   public void testCycle_10PerCentGrowth() throws Exception
   {
+    final City city = new CityBuilder()
+        .setName("Amsterdam")
+        .setPopulation(INITIAL_POPULATION)
+        .setLocation(new Location(Terrain.DESERT))
+        .build();
+
     assertThat(
-        new CityBuilder().setName("Amsterdam").setPopulation(1000).setLocation(new Location(Terrain.DESERT)).build().cycle().getPopulation(),
+        city.cycle().getPopulation(),
         is(1100)
     );
   }
@@ -35,13 +42,13 @@ public class CityTest
   @Test
   public void testCurrentActivity_IsEmpty() throws Exception
   {
-    assertThat(emptyCity.currentActivity(), is(empty()));
+    assertThat(EMPTY_CITY.currentActivity(), is(empty()));
   }
 
   @Test
   public void testCurrentActivity_NewElement() throws Exception
   {
-    City city = new CityBuilder().setName("Amsterdam").build();
+    City city = EMPTY_CITY;
     city.build(new CityElement(new Effort(2)));
 
     final City postCycleCity = city.cycle();
@@ -52,7 +59,7 @@ public class CityTest
   @Test
   public void testCity_BuildsItemOnCycle() throws Exception
   {
-    City city = new CityBuilder().setName("Amsterdam").build();
+    City city = EMPTY_CITY;
     city.build(new CityElement(new Effort(2)));
     city.build(new CityElement(new Effort(2)));
 
@@ -65,7 +72,10 @@ public class CityTest
   @Test
   public void testCity_GrowthBasedOnTerrain() throws Exception
   {
-    City city = new CityBuilder().setName("Amsterdam").setPopulation(1000).build();
+    City city = new CityBuilder()
+        .setName("Amsterdam")
+        .setPopulation(INITIAL_POPULATION)
+        .build();
 
     assertThat(city.getGrowthFactor(), is(1.0));
   }

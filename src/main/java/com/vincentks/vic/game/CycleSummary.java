@@ -13,7 +13,7 @@ public interface CycleSummary
 
   int getId();
 
-  Iterable<Item> getItems();
+  Iterable<DiffAware> getItems();
 
   Optional<Item> getById(UUID itemId);
 }

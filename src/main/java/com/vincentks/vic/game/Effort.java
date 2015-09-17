@@ -1,6 +1,9 @@
 package com.vincentks.vic.game;
 
-public class Effort implements Cyclable
+import java.util.UUID;
+
+// TODO: this is not an item
+public class Effort implements Item, Cyclable
 {
   public static final Effort noEffort = new Effort(0)
   {
@@ -29,4 +32,17 @@ public class Effort implements Cyclable
       return noEffort;
     return new Effort(effort + 1);
   }
+
+  @Override
+  public Effort buildEffort()
+  {
+    return noEffort;
+  }
+
+  @Override
+  public UUID getId()
+  {
+    return null;
+  }
+
 }

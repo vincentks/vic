@@ -12,8 +12,10 @@ import java.util.stream.Stream;
 
 import com.google.common.collect.FluentIterable;
 
-public class City implements StaticItem
+public class City implements ItemProducer, Cyclable
 {
+  protected static final int INITIAL_POPULATION = 1000;
+
   private final UUID             id;
   private final String           name;
   private final Integer          population;
@@ -102,12 +104,6 @@ public class City implements StaticItem
     return id;
   }
 
-  @Override
-  public ItemType getType()
-  {
-    return ItemType.STATIC;
-  }
-
   private static boolean shouldNewItemBeBuilt(Optional<Item> itemBuilt)
   {
     return itemBuilt.isPresent();
@@ -167,11 +163,11 @@ public class City implements StaticItem
   {
     City cityInPreviousCycle = (City) itemInPreviousCycle;
     // http://stackoverflow.com/questions/22740464/adding-two-java-8-streams-or-an-extra-element-to-a-stream
-    final Stream<CycleDiff> stream = Stream.concat(
+    final Stream<CycleDiff> result = Stream.concat(
         getPopulationDiff(cityInPreviousCycle),
         getUnitDiff(cityInPreviousCycle)
     );
-    return stream.collect(Collectors.toList());
+    return result.collect(Collectors.toList());
   }
 
   private Stream<CycleDiff> getUnitDiff(City cityInPreviousCycle)
@@ -192,8 +188,7 @@ public class City implements StaticItem
 
   private boolean isActiveItemCreatedInThisCycle(City cityInPreviousCycle, Item item)
   {
-    final boolean isCreatedInThisCycle = !cityInPreviousCycle.getElements().contains(item);
-    return isCreatedInThisCycle && ItemType.ACTIVE == item.getType();
+    return !cityInPreviousCycle.getElements().contains(item);
   }
 
   private Stream<CycleDiff> getPopulationDiff(City cityInPreviousCycle)

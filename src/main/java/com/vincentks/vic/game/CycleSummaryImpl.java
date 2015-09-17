@@ -7,10 +7,10 @@ import java.util.stream.Collectors;
 
 public class CycleSummaryImpl implements CycleSummary
 {
-  private Collection<Pair<Actor, Item>> items;
-  private int                           id;
+  private Collection<Pair<Actor, DiffAware>> items;
+  private int                                id;
 
-  public CycleSummaryImpl(int id, Collection<Pair<Actor, Item>> items)
+  public CycleSummaryImpl(int id, Collection<Pair<Actor, DiffAware>> items)
   {
     this.id = id;
     this.items = items;
@@ -33,7 +33,7 @@ public class CycleSummaryImpl implements CycleSummary
   @Override
   public CycleSummary itemsFor(Actor actor)
   {
-    final Collection<Pair<Actor, Item>> items = this.items
+    final Collection<Pair<Actor, DiffAware>> items = this.items
         .stream()
         .filter(actorItemPair -> actor.equals(actorItemPair.getFirst()))
         .collect(Collectors.toList());
@@ -47,7 +47,7 @@ public class CycleSummaryImpl implements CycleSummary
   }
 
   @Override
-  public Iterable<Item> getItems()
+  public Iterable<DiffAware> getItems()
   {
     return items
         .stream()

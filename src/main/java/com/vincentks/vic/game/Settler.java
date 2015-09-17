@@ -2,10 +2,8 @@ package com.vincentks.vic.game;
 
 import java.util.UUID;
 
-// TODO review how to address this item type: are they needed when fighthing is implemented?
-public class FootSoldier implements MobileItem
+public class Settler implements MobileItem
 {
-
   @Override
   public Effort buildEffort()
   {
@@ -15,7 +13,7 @@ public class FootSoldier implements MobileItem
   @Override
   public UUID getId()
   {
+    // TODO will this be repeated everywhere...?
     return UUID.randomUUID();
   }
-
 }

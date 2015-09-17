@@ -1,5 +1,6 @@
 package com.vincentks.vic.game;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,19 +14,28 @@ public class GameImpl implements Game
   @Override
   public CycleSummary cycle()
   {
-    this.items = this.items
-        .stream()
-        .map(GameImpl::cycle)
-        .collect(Collectors.toList());
-    return new CycleSummaryImpl(++cycleId, items);
+    for (int i = 0; i < items.size(); i++)
+    {
+      final Pair<Actor, Item> actorItemPair = items.get(i);
+      // TODO come up with a mechanism better than checking for classes
+      if (Cyclable.class.isAssignableFrom(actorItemPair.getSecond().getClass()))
+      {
+        final Cyclable cyclable = (Cyclable) actorItemPair.getSecond();
+        final Item item = cyclable.cycle();
+        items.set(i, new Pair<>(actorItemPair.getFirst(), item));
+      }
+    }
+    return new CycleSummaryImpl(++cycleId, getDiffAwareItems(items));
   }
 
-  private static Pair<Actor, Item> cycle(Pair<Actor, Item> actorItemPair)
+  private Collection<Pair<Actor, DiffAware>> getDiffAwareItems(List<Pair<Actor, Item>> items)
   {
-    return new Pair<>(
-        actorItemPair.getFirst(),
-        actorItemPair.getSecond().cycle()
-    );
+    // TODO come up with a mechanism better than checking for classes
+    return items
+        .stream()
+        .filter(actorItemPair -> DiffAware.class.isAssignableFrom(actorItemPair.getSecond().getClass()))
+        .map(actorItemPair -> new Pair<>(actorItemPair.getFirst(), (DiffAware) actorItemPair.getSecond()))
+        .collect(Collectors.toList());
   }
 
   @Override

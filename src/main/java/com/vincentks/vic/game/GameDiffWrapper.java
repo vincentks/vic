@@ -28,7 +28,7 @@ public class GameDiffWrapper implements Game
     if (previousCycleSummary != null)
     {
       cycleDiffCollector.clear();
-      for (Item item : result.itemsFor(actor).getItems())
+      for (DiffAware item : result.itemsFor(actor).getItems())
       {
         logger.info("Summary for " + item);
         final Optional<Item> itemInPreviousCycle = previousCycleSummary.getById(item.getId());

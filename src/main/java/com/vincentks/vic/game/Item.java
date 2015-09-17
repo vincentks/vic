@@ -1,18 +1,11 @@
 package com.vincentks.vic.game;
 
-import java.util.Optional;
 import java.util.UUID;
 
-public interface Item extends Cyclable, DiffAware
+// TODO add definition of each of the interfaces in this hierarchy
+public interface Item
 {
-  Optional<Item> currentActivity();
-
   Effort buildEffort();
 
-  @Override
-  Item cycle();
-
   UUID getId();
-
-  ItemType getType();
 }

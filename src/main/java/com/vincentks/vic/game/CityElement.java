@@ -1,11 +1,8 @@
 package com.vincentks.vic.game;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Optional;
 import java.util.UUID;
 
-public class CityElement implements Item
+public class CityElement implements Item, Cyclable
 {
   private final Effort effort;
 
@@ -15,7 +12,7 @@ public class CityElement implements Item
   }
 
   @Override
-  public Item cycle()
+  public Cyclable cycle()
   {
     return new CityElement(effort);
   }
@@ -27,26 +24,8 @@ public class CityElement implements Item
   }
 
   @Override
-  public ItemType getType()
-  {
-    return ItemType.STATIC;
-  }
-
-  @Override
-  public Optional<Item> currentActivity()
-  {
-    return Optional.empty();
-  }
-
-  @Override
   public Effort buildEffort()
   {
     return effort;
-  }
-
-  @Override
-  public Collection<CycleDiff> diff(Item itemInPreviousCycle)
-  {
-    return Collections.emptyList();
   }
 }

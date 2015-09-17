@@ -2,7 +2,7 @@ package com.vincentks.vic.game;
 
 public interface LocationManager
 {
-  Location getLocation(ActiveItem item);
+  Location getLocation(MobileItem item);
 
-  void move(ActiveItem item, Location location);
+  void move(MobileItem item, Location location);
 }

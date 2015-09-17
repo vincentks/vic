@@ -1,7 +1,8 @@
 package com.vincentks.vic.game;
 
+import static com.vincentks.vic.game.util.TestFixture.EMPTY_CITY;
 import static com.vincentks.vic.game.util.TestFixture.NULL_ACTOR;
-import static com.vincentks.vic.game.util.TestFixture.NULL_ITEM;
+import static com.vincentks.vic.game.util.TestFixture.NULL_DIFF_AWARE_ITEM;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
@@ -33,7 +34,7 @@ public class GameImplTest
   public void testCycle_ItemGeneratesOneActionUponTurn() throws Exception
   {
     final Game game = new GameImpl();
-    game.add(NULL_ACTOR, NULL_ITEM);
+    game.add(NULL_ACTOR, NULL_DIFF_AWARE_ITEM);
 
     final CycleSummary cycleSummary = game.cycle();
 
@@ -45,10 +46,10 @@ public class GameImplTest
   {
     final Game game = new GameImpl();
     final Actor actor = new NullActor();
-    game.add(actor, NULL_ITEM);
+    game.add(actor, NULL_DIFF_AWARE_ITEM);
 
-    game.add(new NullActor(), NULL_ITEM);
-    game.add(new NullActor(), NULL_ITEM);
+    game.add(new NullActor(), NULL_DIFF_AWARE_ITEM);
+    game.add(new NullActor(), NULL_DIFF_AWARE_ITEM);
 
     final CycleSummary cycleSummary = game.cycle();
 
@@ -59,7 +60,7 @@ public class GameImplTest
   @Test
   public void testCycle_ShouldYieldNewItems() throws Exception
   {
-    Item preTurnItem = new CityBuilder().setName("amsterdam").build();
+    Item preTurnItem = EMPTY_CITY;
     final Game game = new GameImpl();
     game.add(NULL_ACTOR, preTurnItem);
 

@@ -1,7 +1,9 @@
 package com.vincentks.vic.game;
 
+import static com.vincentks.vic.game.City.INITIAL_POPULATION;
 import static com.vincentks.vic.game.RelevanceLevel.NORMAL;
 import static com.vincentks.vic.game.Terrain.DESERT;
+import static com.vincentks.vic.game.util.TestFixture.EMPTY_CITY;
 import static com.vincentks.vic.game.util.TestFixture.NULL_ACTOR;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
@@ -10,9 +12,10 @@ import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
+import com.vincentks.vic.game.util.MobileItemWithEffort;
+
 public class GameDiffWrapperTest
 {
-
   @Test
   public void testCycle_EmptyDiff() throws Exception
   {
@@ -31,7 +34,7 @@ public class GameDiffWrapperTest
   {
     final CycleDiffCollector cycleDiffCollector = new CycleDiffCollector();
     final Game game = new GameImpl();
-    final City city = new CityBuilder().build();
+    final City city = EMPTY_CITY;
     game.add(NULL_ACTOR, city);
     final GameDiffWrapper wrapper = new GameDiffWrapper(
         game,
@@ -39,7 +42,7 @@ public class GameDiffWrapperTest
         cycleDiffCollector
     );
     wrapper.cycle();
-    city.build(FootSoldier.create(new Location(Terrain.STANDARD), new LocationManagerImpl()));
+    city.build(new MobileItemWithEffort(1));
     wrapper.cycle();
 
     final CycleDiff cycleDiff = cycleDiffCollector.getDiffs().iterator().next();
@@ -56,7 +59,7 @@ public class GameDiffWrapperTest
     final City city = new CityBuilder()
         .setName("Amsterdam")
         .setLocation(new Location(DESERT))
-        .setPopulation(1000)
+        .setPopulation(INITIAL_POPULATION)
         .build();
     game.add(NULL_ACTOR, city);
     final GameDiffWrapper wrapper = new GameDiffWrapper(

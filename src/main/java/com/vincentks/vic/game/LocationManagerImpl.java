@@ -6,16 +6,16 @@ import com.google.common.collect.Maps;
 
 public class LocationManagerImpl implements LocationManager
 {
-  private final Map<ActiveItem, Location> items = Maps.newHashMap();
+  private final Map<MobileItem, Location> items = Maps.newHashMap();
 
   @Override
-  public Location getLocation(ActiveItem item)
+  public Location getLocation(MobileItem item)
   {
     return items.get(item);
   }
 
   @Override
-  public void move(ActiveItem item, Location location)
+  public void move(MobileItem item, Location location)
   {
     items.put(item, location);
   }
