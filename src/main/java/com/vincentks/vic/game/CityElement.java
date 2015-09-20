@@ -5,6 +5,7 @@ import java.util.UUID;
 public class CityElement implements Item, Cyclable
 {
   private final Effort effort;
+  private final UUID id = UUID.randomUUID();
 
   public CityElement(Effort effort)
   {
@@ -20,7 +21,7 @@ public class CityElement implements Item, Cyclable
   @Override
   public UUID getId()
   {
-    return UUID.randomUUID();
+    return id;
   }
 
   @Override

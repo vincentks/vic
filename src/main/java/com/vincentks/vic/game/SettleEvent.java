@@ -26,14 +26,13 @@ public class SettleEvent implements Event
   @Override
   public Item execute()
   {
-    // TODO items should not belong to a city: how to deal with deaths?
-//    settler.die();
     final City city = new CityBuilder()
         .setLocation(cityLocation)
         .setPopulation(City.INITIAL_POPULATION)
         .setName(cityName)
         .build();
     game.add(actor, city);
+    game.remove(actor, settler);
     return settler;
   }
 }

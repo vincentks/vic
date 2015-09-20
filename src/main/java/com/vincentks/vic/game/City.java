@@ -12,7 +12,7 @@ import java.util.stream.Stream;
 
 import com.google.common.collect.FluentIterable;
 
-public class City implements ItemProducer, Cyclable
+public class City implements ItemProducer
 {
   protected static final int INITIAL_POPULATION = 1000;
 

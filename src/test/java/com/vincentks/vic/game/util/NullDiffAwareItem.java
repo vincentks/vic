@@ -35,5 +35,4 @@ public class NullDiffAwareItem implements DiffAware
   {
     return UUID.randomUUID();
   }
-
 }

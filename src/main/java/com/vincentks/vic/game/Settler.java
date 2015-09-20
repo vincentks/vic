@@ -4,6 +4,8 @@ import java.util.UUID;
 
 public class Settler implements MobileItem
 {
+  private final UUID id = UUID.randomUUID();
+
   @Override
   public Effort buildEffort()
   {
@@ -13,7 +15,6 @@ public class Settler implements MobileItem
   @Override
   public UUID getId()
   {
-    // TODO will this be repeated everywhere...?
-    return UUID.randomUUID();
+    return id;
   }
 }

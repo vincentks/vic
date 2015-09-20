@@ -2,8 +2,7 @@ package com.vincentks.vic.game;
 
 import java.util.UUID;
 
-// TODO: this is not an item
-public class Effort implements Item, Cyclable
+public class Effort implements Cyclable
 {
   public static final Effort noEffort = new Effort(0)
   {
@@ -44,5 +43,4 @@ public class Effort implements Item, Cyclable
   {
     return null;
   }
-
 }

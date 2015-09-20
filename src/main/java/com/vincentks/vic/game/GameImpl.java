@@ -43,4 +43,10 @@ public class GameImpl implements Game
   {
     items.add(new Pair<>(actor, item));
   }
+
+  @Override
+  public void remove(Actor actor, Item item)
+  {
+    items.remove(new Pair<>(actor, item));
+  }
 }

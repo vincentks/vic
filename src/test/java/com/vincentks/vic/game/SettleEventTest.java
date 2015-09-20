@@ -5,7 +5,6 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.verify;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -23,7 +22,7 @@ public class SettleEventTest
   }
 
   @Test
-  public void testSettle_NewCityIsCreated() throws Exception
+  public void testSettle_NewCityIsCreated_SettlerIsRemoved() throws Exception
   {
     Settler settler = new Settler();
     final LocationManager locationManager = new LocationManagerImpl();
@@ -38,11 +37,6 @@ public class SettleEventTest
     settleEvent.execute();
 
     verify(game).add(eq(NULL_ACTOR), any(City.class));
-  }
-
-  @Test
-  public void testSettle_SettlerShouldBeRemovedFromGame() throws Exception
-  {
-    Assert.fail("Missing implementation");
+    verify(game).remove(eq(NULL_ACTOR), eq(settler));
   }
 }

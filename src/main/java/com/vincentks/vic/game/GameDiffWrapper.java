@@ -41,8 +41,14 @@ public class GameDiffWrapper implements Game
   }
 
   @Override
-  public void add(Actor actor, Item city)
+  public void add(Actor actor, Item item)
   {
-    game.add(actor, city);
+    game.add(actor, item);
+  }
+
+  @Override
+  public void remove(Actor actor, Item item)
+  {
+    game.remove(actor, item);
   }
 }

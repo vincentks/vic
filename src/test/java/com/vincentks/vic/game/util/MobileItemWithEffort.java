@@ -25,5 +25,4 @@ public class MobileItemWithEffort implements MobileItem
   {
     return null;
   }
-
 }
