@@ -1,8 +1,9 @@
-package com.vincentks.vic.game;
+package com.vincentks.vic.game.event;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
+import com.vincentks.vic.game.*;
 import org.junit.Test;
 
 import com.vincentks.vic.game.util.NullMobileItem;

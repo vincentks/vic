@@ -1,4 +1,6 @@
-package com.vincentks.vic.game;
+package com.vincentks.vic.game.event;
+
+import com.vincentks.vic.game.*;
 
 public class SettleEvent implements Event {
 	private final Settler settler;

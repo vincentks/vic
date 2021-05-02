@@ -5,61 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5876c2e-f0b3-4b80-a701-a520ef40ae94" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_logging_log4j_log4j_api_2_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_logging_log4j_log4j_core_2_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_mockito_mockito_all_1_10_19.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/vic.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/vic.test.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/Actor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/Actor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/City.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/CityBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/CityBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/CityElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/CityElement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/Cyclable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/Cyclable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/CycleDiff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/CycleDiff.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/CycleDiffCollector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/CycleDiffCollector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/CycleSummary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/CycleSummary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/CycleSummaryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/CycleSummaryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/DiffAware.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/DiffAware.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/Effort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/Effort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/FootSoldier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/FootSoldier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/GameDiffWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/GameDiffWrapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/GameImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/GameImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/ItemProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/ItemProducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/ItemType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/ItemType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/LocationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/LocationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/LocationManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/LocationManagerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/MobileItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/MobileItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/MoveEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/MoveEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/Pair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/Pair.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/RelevanceLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/RelevanceLevel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/SettleEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/SettleEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/Settler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/Settler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/Terrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vincentks/vic/game/Terrain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/vincentks/vic/game/CityTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/vincentks/vic/game/CityTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/vincentks/vic/game/GameDiffWrapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/vincentks/vic/game/GameDiffWrapperTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/vincentks/vic/game/GameImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/vincentks/vic/game/GameImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/vincentks/vic/game/MoveEventTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/vincentks/vic/game/MoveEventTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/vincentks/vic/game/SettleEventTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/vincentks/vic/game/SettleEventTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/vincentks/vic/game/util/MobileItemWithEffort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/vincentks/vic/game/util/MobileItemWithEffort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/vincentks/vic/game/util/NullActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/vincentks/vic/game/util/NullActor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/vincentks/vic/game/util/NullDiffAwareItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/vincentks/vic/game/util/NullDiffAwareItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/vincentks/vic/game/util/NullMobileItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/vincentks/vic/game/util/NullMobileItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/vincentks/vic/game/util/TestFixture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/vincentks/vic/game/util/TestFixture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vic.iml" beforeDir="false" afterPath="$PROJECT_DIR$/vic.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -1237,8 +1185,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.vic [build]" />
-        <item itemvalue="Gradle.Tests in 'vic.test'" />
         <item itemvalue="Gradle.Tests in 'vic'" />
+        <item itemvalue="Gradle.Tests in 'vic.test'" />
         <item itemvalue="Gradle.testCity_BuildsItemOnCycle" />
         <item itemvalue="Gradle.testCurrentActivity_NewElement" />
       </list>
@@ -1256,8 +1204,23 @@
       <option name="presentableId" value="Default" />
       <updated>1436888150786</updated>
       <workItem from="1619965703763" duration="1407000" />
-      <workItem from="1619967117046" duration="132000" />
+      <workItem from="1619967117046" duration="3029000" />
     </task>
+    <task id="LOCAL-00001" summary="Reformatting code; dealing with some todos">
+      <created>1619967509861</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1619967509861</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Removing throws from unit tests">
+      <created>1619967627445</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1619967627445</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1353,6 +1316,11 @@
     <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
       <collection />
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Reformatting code; dealing with some todos" />
+    <MESSAGE value="Removing throws from unit tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removing throws from unit tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

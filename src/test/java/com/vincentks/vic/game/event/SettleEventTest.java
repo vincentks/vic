@@ -1,10 +1,11 @@
-package com.vincentks.vic.game;
+package com.vincentks.vic.game.event;
 
 import static com.vincentks.vic.game.util.TestFixture.NULL_ACTOR;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.verify;
 
+import com.vincentks.vic.game.*;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;

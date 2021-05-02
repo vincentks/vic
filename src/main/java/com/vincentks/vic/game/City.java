@@ -13,7 +13,7 @@ import java.util.stream.Stream;
 import com.google.common.collect.FluentIterable;
 
 public class City implements ItemProducer {
-	protected static final int INITIAL_POPULATION = 1000;
+	public static final int INITIAL_POPULATION = 1000;
 
 	private final UUID id;
 	private final String name;
@@ -66,16 +66,20 @@ public class City implements ItemProducer {
 
 	@Override
 	public City cycle() {
-		// TODO the city should be able to build more than one unit in one cycle, given that its production effort is much higher than what is required by a given unit
-		Effort buildEffortSpent = getBuildEffortSpent().cycle();
+		// TODO the city should be able to build more than one unit in one
+		//  cycle, given that its production effort is much higher than
+		//  what is required by a given unit
+		Effort buildEffortSpent = this.getBuildEffortSpent().cycle();
 		Optional<Item> itemToBuild = currentlyBuilding;
-		if (itemToBuild.isEmpty())
+		if (itemToBuild.isEmpty()) {
 			itemToBuild = Optional.ofNullable(buildQueue.poll());
+		}
 		final Optional<Item> itemBuilt = buildItem(buildEffortSpent, itemToBuild);
 		if (shouldNewItemBeBuilt(itemBuilt)) {
 			itemToBuild = Optional.ofNullable(buildQueue.poll());
-			if (itemToBuild.isPresent())
+			if (itemToBuild.isPresent()) {
 				buildEffortSpent = new Effort(0);
+			}
 		}
 
 		return new CityBuilder()
@@ -145,8 +149,8 @@ public class City implements ItemProducer {
 		City cityInPreviousCycle = (City) itemInPreviousCycle;
 		// http://stackoverflow.com/questions/22740464/adding-two-java-8-streams-or-an-extra-element-to-a-stream
 		final Stream<CycleDiff> result = Stream.concat(
-			getPopulationDiff(cityInPreviousCycle),
-			getUnitDiff(cityInPreviousCycle)
+			this.getPopulationDiff(cityInPreviousCycle),
+			this.getUnitDiff(cityInPreviousCycle)
 		);
 		return result.collect(Collectors.toList());
 	}
@@ -154,7 +158,7 @@ public class City implements ItemProducer {
 	private Stream<CycleDiff> getUnitDiff(City cityInPreviousCycle) {
 		final long activeItemsCreatedInThisCycle = elements
 			.stream()
-			.filter(item -> isActiveItemCreatedInThisCycle(cityInPreviousCycle, item))
+			.filter(item -> this.isActiveItemCreatedInThisCycle(cityInPreviousCycle, item))
 			.count();
 		if (activeItemsCreatedInThisCycle > 0)
 			return Stream.of(new CycleDiff(

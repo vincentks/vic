@@ -7,8 +7,18 @@ import java.util.stream.Collectors;
 import com.google.common.collect.Lists;
 
 public class GameImpl implements Game {
-	private List<Pair<Actor, Item>> items = Lists.newArrayList();
+	private final List<Pair<Actor, Item>> items = Lists.newArrayList();
 	private int cycleId;
+
+	@Override
+	public void add(Actor actor, Item item) {
+		items.add(new Pair<>(actor, item));
+	}
+
+	@Override
+	public void remove(Actor actor, Item item) {
+		items.remove(new Pair<>(actor, item));
+	}
 
 	@Override
 	public CycleSummary cycle() {
@@ -20,7 +30,7 @@ public class GameImpl implements Game {
 				items.set(i, new Pair<>(pair.getFirst(), item));
 			}
 		}
-		return new CycleSummaryImpl(++cycleId, getDiffAwareItems(items));
+		return new CycleSummaryImpl(++cycleId, this.getDiffAwareItems(items));
 	}
 
 	private Collection<Pair<Actor, DiffAware>> getDiffAwareItems(List<Pair<Actor, Item>> items) {
@@ -29,15 +39,5 @@ public class GameImpl implements Game {
 			.filter(pair -> pair.getSecond().isDiffAware())
 			.map(pair -> new Pair<>(pair.getFirst(), (DiffAware) pair.getSecond()))
 			.collect(Collectors.toList());
-	}
-
-	@Override
-	public void add(Actor actor, Item item) {
-		items.add(new Pair<>(actor, item));
-	}
-
-	@Override
-	public void remove(Actor actor, Item item) {
-		items.remove(new Pair<>(actor, item));
 	}
 }

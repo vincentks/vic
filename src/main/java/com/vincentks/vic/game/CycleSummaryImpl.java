@@ -6,8 +6,8 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 public class CycleSummaryImpl implements CycleSummary {
-	private Collection<Pair<Actor, DiffAware>> items;
-	private int id;
+	private final Collection<Pair<Actor, DiffAware>> items;
+	private final int id;
 
 	public CycleSummaryImpl(int id, Collection<Pair<Actor, DiffAware>> items) {
 		this.id = id;
