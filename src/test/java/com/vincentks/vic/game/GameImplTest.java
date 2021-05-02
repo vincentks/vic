@@ -14,21 +14,21 @@ import com.vincentks.vic.game.util.NullActor;
 public class GameImplTest {
 
 	@Test
-	public void testTurn_EmptyGame() throws Exception {
+	public void testTurn_EmptyGame() {
 		CycleSummary cycleSummary = new GameImpl().cycle();
 
 		assertEquals(0, cycleSummary.numberOfItems());
 	}
 
 	@Test
-	public void testCycle_TrackNumberOfTurns() throws Exception {
+	public void testCycle_TrackNumberOfTurns() {
 		final CycleSummary cycleSummary = new GameImpl().cycle();
 
 		assertThat(cycleSummary.getId(), is(1));
 	}
 
 	@Test
-	public void testCycle_ItemGeneratesOneActionUponTurn() throws Exception {
+	public void testCycle_ItemGeneratesOneActionUponTurn() {
 		final Game game = new GameImpl();
 		game.add(NULL_ACTOR, NULL_DIFF_AWARE_ITEM);
 
@@ -38,7 +38,7 @@ public class GameImplTest {
 	}
 
 	@Test
-	public void testCycle_SegregateSummaryByOwner() throws Exception {
+	public void testCycle_SegregateSummaryByOwner() {
 		final Game game = new GameImpl();
 		final Actor actor = new NullActor();
 		game.add(actor, NULL_DIFF_AWARE_ITEM);
@@ -53,7 +53,7 @@ public class GameImplTest {
 	}
 
 	@Test
-	public void testCycle_ShouldYieldNewItems() throws Exception {
+	public void testCycle_ShouldYieldNewItems() {
 		Item preTurnItem = EMPTY_CITY;
 		final Game game = new GameImpl();
 		game.add(NULL_ACTOR, preTurnItem);

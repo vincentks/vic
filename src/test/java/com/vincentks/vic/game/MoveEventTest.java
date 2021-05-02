@@ -10,7 +10,7 @@ import com.vincentks.vic.game.util.NullMobileItem;
 public class MoveEventTest {
 
 	@Test
-	public void testExecute() throws Exception {
+	public void testExecute() {
 		MobileItem item = new NullMobileItem();
 		LocationManager manager = new LocationManagerImpl();
 

@@ -16,7 +16,7 @@ import com.vincentks.vic.game.util.MobileItemWithEffort;
 
 public class GameDiffWrapperTest {
 	@Test
-	public void testCycle_EmptyDiff() throws Exception {
+	public void testCycle_EmptyDiff() {
 		final CycleDiffCollector cycleDiffCollector = new CycleDiffCollector();
 		new GameDiffWrapper(
 			new GameImpl(),
@@ -28,7 +28,7 @@ public class GameDiffWrapperTest {
 	}
 
 	@Test
-	public void testCycle_CityBuildingUnit() throws Exception {
+	public void testCycle_CityBuildingUnit() {
 		final CycleDiffCollector cycleDiffCollector = new CycleDiffCollector();
 		final Game game = new GameImpl();
 		final City city = EMPTY_CITY;
@@ -48,7 +48,7 @@ public class GameDiffWrapperTest {
 	}
 
 	@Test
-	public void testCycle_CityPopulationEvolution() throws Exception {
+	public void testCycle_CityPopulationEvolution() {
 		final CycleDiffCollector cycleDiffCollector = new CycleDiffCollector();
 		// TODO create a game builder?
 		final Game game = new GameImpl();

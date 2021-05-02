@@ -15,12 +15,12 @@ public class SettleEventTest {
 	private Game game;
 
 	@Before
-	public void setUp() throws Exception {
+	public void setUp() {
 		MockitoAnnotations.initMocks(this);
 	}
 
 	@Test
-	public void testSettle_NewCityIsCreated_SettlerIsRemoved() throws Exception {
+	public void testSettle_NewCityIsCreated_SettlerIsRemoved() {
 		Settler settler = new Settler();
 		final LocationManager locationManager = new LocationManagerImpl();
 		new MoveEvent(settler, new Location(Terrain.STANDARD, 2, 2), locationManager).execute();
