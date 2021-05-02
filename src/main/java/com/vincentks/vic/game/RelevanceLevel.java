@@ -1,6 +1,5 @@
 package com.vincentks.vic.game;
 
-public enum RelevanceLevel
-{
-  NORMAL
+public enum RelevanceLevel {
+	NORMAL
 }

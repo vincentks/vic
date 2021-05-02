@@ -7,22 +7,20 @@ import org.junit.Test;
 
 import com.vincentks.vic.game.util.NullMobileItem;
 
-public class MoveEventTest
-{
+public class MoveEventTest {
 
-  @Test
-  public void testExecute() throws Exception
-  {
-    MobileItem item = new NullMobileItem();
-    LocationManager manager = new LocationManagerImpl();
+	@Test
+	public void testExecute() throws Exception {
+		MobileItem item = new NullMobileItem();
+		LocationManager manager = new LocationManagerImpl();
 
-    new MoveEvent(
-        item,
-        new Location(Terrain.STANDARD, 6, 7),
-        manager
-    ).execute();
+		new MoveEvent(
+			item,
+			new Location(Terrain.STANDARD, 6, 7),
+			manager
+		).execute();
 
-    assertThat(manager.getLocation(item).getX(), is(6));
-    assertThat(manager.getLocation(item).getY(), is(7));
-  }
+		assertThat(manager.getLocation(item).getX(), is(6));
+		assertThat(manager.getLocation(item).getY(), is(7));
+	}
 }

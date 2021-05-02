@@ -3,17 +3,16 @@ package com.vincentks.vic.game;
 import java.util.Optional;
 import java.util.UUID;
 
-public interface CycleSummary
-{
-  int numberOfItems();
+public interface CycleSummary {
+	int numberOfItems();
 
-  boolean contains(Item item);
+	boolean contains(Item item);
 
-  CycleSummary itemsFor(Actor actor);
+	CycleSummary itemsFor(Actor actor);
 
-  int getId();
+	int getId();
 
-  Iterable<DiffAware> getItems();
+	Iterable<DiffAware> getItems();
 
-  Optional<Item> getById(UUID itemId);
+	Optional<Item> getById(UUID itemId);
 }

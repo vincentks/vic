@@ -1,5 +1,4 @@
 package com.vincentks.vic.game;
 
-public interface Actor
-{
+public interface Actor {
 }

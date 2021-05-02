@@ -1,23 +1,19 @@
 package com.vincentks.vic.game;
 
-public class Pair<X, Y>
-{
-  private X first;
-  private Y second;
+public class Pair<First, Second> {
+	private First first;
+	private Second second;
 
-  public Pair(X first, Y second)
-  {
-    this.first = first;
-    this.second = second;
-  }
+	public Pair(First first, Second second) {
+		this.first = first;
+		this.second = second;
+	}
 
-  public X getFirst()
-  {
-    return first;
-  }
+	public First getFirst() {
+		return first;
+	}
 
-  public Y getSecond()
-  {
-    return second;
-  }
+	public Second getSecond() {
+		return second;
+	}
 }

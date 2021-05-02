@@ -5,18 +5,15 @@ import java.util.UUID;
 import com.vincentks.vic.game.Effort;
 import com.vincentks.vic.game.MobileItem;
 
-public class NullMobileItem implements MobileItem
-{
-  @Override
-  public Effort buildEffort()
-  {
-    return Effort.noEffort;
-  }
+public class NullMobileItem implements MobileItem {
+	@Override
+	public Effort buildEffort() {
+		return Effort.noEffort;
+	}
 
-  @Override
-  public UUID getId()
-  {
-    return UUID.randomUUID();
-  }
+	@Override
+	public UUID getId() {
+		return UUID.randomUUID();
+	}
 
 }

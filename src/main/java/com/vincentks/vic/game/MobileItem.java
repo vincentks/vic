@@ -1,6 +1,5 @@
 package com.vincentks.vic.game;
 
-public interface MobileItem extends Item
-{
+public interface MobileItem extends Item {
 
 }

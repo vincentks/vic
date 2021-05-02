@@ -1,6 +1,5 @@
 package com.vincentks.vic.game;
 
-public enum ItemType
-{
-  STATIC, ACTIVE
+public enum ItemType {
+	STATIC, ACTIVE
 }
